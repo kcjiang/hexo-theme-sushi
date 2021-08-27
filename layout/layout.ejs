@@ -1,12 +1,17 @@
 
 <%
-var bodyClassTemplate = "";
-if (is_home()) bodyClassTemplate = "home-template paged-next";
-if (is_post()) bodyClassTemplate = "post-template";
-if (is_page()) bodyClassTemplate = "page-template";
-if (is_tag()) bodyClassTemplate = "tag-template";
-if (is_archive()) bodyClassTemplate = "archive-template";
-if (is_category()) bodyClassTemplate = "category-template";
+var bodyClass = "standard";
+if (is_home()) bodyClass = "home";
+if (is_post()) bodyClass = "post";
+if (is_page()) bodyClass = "page";
+if (is_tag()) bodyClass = "tag";
+if (is_archive()) bodyClass = "archive";
+if (is_category()) bodyClass = "category";
+%>
+
+<%
+var classAdd = "";
+if (page.total > 1) classAdd = " paged-next";
 %>
 
 <!DOCTYPE html>
@@ -14,7 +19,7 @@ if (is_category()) bodyClassTemplate = "category-template";
 
 <%-partial('partials/head')%>
 
-<body class="<%=bodyClassTemplate%>">
+<body class="<%=bodyClass%>-template<%=classAdd%>">
   <%-partial('partials/icons')%>
 
   <div class="site">

@@ -1,0 +1,11 @@
+<nav class="pagination">
+    <% if (page.next) { %>
+        <a class="older-posts" href="<%=page.next_link%>"></a>
+    <% } %>
+</nav>
+<div class="infinite-scroll-status">
+    <div class="infinite-scroll-request"></div>
+</div>
+<div class="infinite-scroll-action">
+    <button class="button button-secondary infinite-scroll-button">加载更多</button>
+</div>
