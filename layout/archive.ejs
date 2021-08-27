@@ -1,8 +1,8 @@
 
 <%
-const categoriesList = list_categories({ show_count: false });
-const tagsList = list_tags({ show_count: false });
-const archivesList = list_archives({ show_count: false });
+const categoriesList = list_categories(site.categories, {class: 'tag-list-item ', orderby: 'length', order: 'desc', style: false, show_count: false, separator: ' '});
+const tagsList = list_tags(site.tags, {class: {a: 'tag-list-item'}, orderby: 'length', order: 'desc', style: false, show_count: false, separator: ' '});
+const archivesList = list_archives({class: 'archive', type: 'monthly', order: 'desc', style: false, show_count: false, separator: ' '});
 %>
 
 <% if (is_year() === false) { %>

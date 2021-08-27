@@ -1,18 +1,15 @@
-
-<div id="category">
-  <h1><%=page.category%></h1>
-  <% page.posts.each(article => { %>
-    <div class="category-item">
-      <a href="<%=url_for(article.path)%>">
-        <%=article.title%>
-      </a>
-      <time datetime="<%=date_xml(article.date)%>">
-        <%=date(article.date)%>
-      </time>
+<div class="content-area">
+  <main class="site-main">
+    <section class="tag">
+      <div class="container medium">
+        <h1 class="tag-name"><%=page.category%></h1>
+      </div>
+    </section>
+    
+    <div class="post-feed container medium">
+      <%-partial('partials/loopForArchives')%>
     </div>
-  <% }); %>
-</div>
-
-<div id="paginator">
-  <%-paginator()%>
+    
+    <%-partial('partials/pagination')%>
+  </main>
 </div>

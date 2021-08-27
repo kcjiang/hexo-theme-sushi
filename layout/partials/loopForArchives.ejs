@@ -1,0 +1,29 @@
+<% page.posts.each(article => { %>
+<%
+var starStatus = "public";
+if (article.star == true) starStatus = "members";
+%>
+<article class="feed post">
+  <div class="feed-calendar">
+    <div class="feed-calendar-month">
+      <%=date(article.date, 'MMM')%>
+    </div>
+    <div class="feed-calendar-day">
+      <%=date(article.date, 'DD')%>
+    </div>
+  </div>
+  <h2 class="feed-title"><%=article.title%></h2>
+  <div class="feed-right">
+    <svg class="icon feed-visibility feed-visibility-<%=starStatus%>">
+      <use xlink:href="#star"></use>
+    </svg>
+    <div class="feed-length">
+      <%=min2read(article.content)%> min read
+    </div>
+  </div>
+  <svg class="icon feed-icon">
+    <use xlink:href="#chevron-right"></use>
+  </svg>
+  <a class="u-permalink" href="<%=url_for(article.path)%>" aria-label="<%=article.title%>"></a>
+</article>
+<% }) %>
