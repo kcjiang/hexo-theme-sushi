@@ -7,12 +7,24 @@ menu:
   Home: /
   About: /about
   Contact: /contact
+  More links: /...
   Archives: /archives
+
+# main logo in navigation
+logo: /nav_logo.svg
+
+# cove description
+description: '域名变更提示：hikc.net(原) ---> jkc.icu(新)'
+
+# cove icon
+icon: /home_img.png
 
 # stylesheets loaded in the <head>
 stylesheets:
-- /css/sushi.css
+#- /css/codeBurger.css
+- /built/screen.css
 
 # scripts loaded in the end of the body
 scripts:
-- /js/sushi.js
+#- /js/codeBurger.js
+- /built/main.min.js

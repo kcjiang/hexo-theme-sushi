@@ -1,0 +1,30 @@
+<%  // get all featured posts.
+    var featuredPosts = [];
+      site.posts.forEach(function (post) {
+          if (post.featured == true) {
+            featuredPosts.push(post);
+          }
+      });
+    var featuredPostsCount = featuredPosts.length;
+%>
+<% if (featuredPostsCount > 0) { %>
+<section class="featured-wrapper container">
+  <h2 class="featured-title">精选博客</h2>
+  <div class="featured-feed owl">
+    <% for (var i = 0; i < featuredPostsCount; i++) { %>
+    <% var post = featuredPosts[i]; %>
+
+    <article class="post featured">
+      <% if (post.image && post.image.length) { %>
+      <div class="u-placeholder horizontal">
+        <img class="lazyload u-object-fit" src="<%=post.image%>" alt="feature_image">
+      </div>
+      <% } %>
+      <h3 class="post-title"><%=post.title%></h3>
+      <a class="u-permalink" href="<%=url_for(post.path)%>" aria-label="<%=post.title%>"></a>
+    </article>
+
+    <% } %>
+  </div>
+</section>
+<% } %>

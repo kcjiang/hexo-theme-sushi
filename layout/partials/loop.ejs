@@ -1,0 +1,33 @@
+<% if (page.posts.length > 0) { %>
+<% page.posts.sort('date', -1).limit(10).each(post => { %>
+
+    <%
+    var starStatus = "public";
+    if (post.star == true) starStatus = "members";
+    %>
+
+<article class="feed post">
+    <div class="feed-calendar">
+        <div class="feed-calendar-month">
+            <%=date(post.date, 'MMMM')%>
+        </div>
+        <div class="feed-calendar-day">
+            <%=date(post.date, 'DD')%>
+        </div>
+    </div>
+    <h2 class="feed-title"><%=post.title%></h2>
+    <div class="feed-right">
+        <svg class="icon feed-visibility feed-visibility-<%=starStatus%>">
+            <use xlink:href="#star"></use>
+        </svg>
+        <div class="feed-length">
+            <%=min2read(post.content)%> min read
+        </div>
+    </div>
+    <svg class="icon feed-icon">
+        <use xlink:href="#chevron-right"></use>
+    </svg>
+    <a class="u-permalink" href="<%=url_for(post.path)%>" aria-label="<%=post.title%>"></a>
+</article>
+<% }); %>
+<% } %>

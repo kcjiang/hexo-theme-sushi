@@ -1,0 +1,20 @@
+<div class="cover container">
+    <div class="cover-content">
+        <% if (theme.icon) { %>
+            <div class="cover-icon">
+                <img class="cover-icon-image" src="<%=theme.icon%>" alt="<%=config.title%>">
+            </div>
+        <% } %>
+
+        <% if (theme.description) { %>
+            <div class="cover-description"><%=theme.description%></div>
+        <% } %>
+
+        <!--{{#unless @member}} -->
+            <div class="cover-cta">
+                <button class="button">README</button>
+                <button class="button button-secondary">Terminal</button>
+            </div>
+        <!--{{/unless}}-->
+    </div>
+</div>

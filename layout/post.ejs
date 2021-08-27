@@ -1,9 +1,109 @@
+<div class="content-area">
+    <main class="site-main">
+      <article class="single post">
+        <header class="single-header kg-canvas">
+                <div class="single-meta">
+                    <span class="single-meta-item single-meta-date">
+                        <time datetime="<%=date(page.date, 'YYYY-MM-DD')%>">
+                          <%=date(page.date, 'YYYY-MM-DD')%>
+                        </time>
+                    </span>
+                    <span class="single-meta-item single-meta-length">
+                      <%=min2read(page.content)%> min read
+                    </span>
+                    <span class="single-meta-item single-meta-tag">
+                        <% if (page.tags && page.tags.length) {
+                            var tags = [];
+                            page.tags.forEach(function(tag) {
+                                tags.push('<a class="post-tag" href="' +  config.root + tag.path + '">#' + tag.name + '</a>');
+                            });
+                        %>
+                        <%- tags.join(' ') %>
+                        <% } %>
+                    </span>
+                </div>
+            <h1 class="single-title"><%=page.title%></h1>
+            <% if (page.excerpt && page.excerpt.length) { %>
+                <div class="single-excerpt">
+                    <%=page.excerpt%>
+                </div>
+            <% } %>
 
-<article id="post">
-  <h1><%=page.title%></h1>
-  <%-page.content%>
-</article>
+            <% if (page.image && page.image.length) { %>
+              <%
+              var imgStyle = "wide";
+              if (page.imgWidth == 'full') imgStyle = "full";
+              if (page.imgWidth == 'narrow') imgStyle = "narrow";
+              %>
 
-<div id="paginator">
-  <%-paginator()%>
+            <figure class="single-media kg-width-<%=imgStyle%>">
+              <div class="u-placeholder horizontal">
+                <img class="lazyload u-object-fit" src="<%=page.image%>" alt="feature_image">
+              </div>
+              <% if (page.imgCaption && page.imgCaption.length) { %>
+                <figcaption>
+                  <%=page.imgCaption%>
+                </figcaption>
+              <% } %>
+            </figure>
+
+            <% } %>
+        </header>
+        <div class="single-content kg-canvas u-text-format">
+          <%-page.content%>
+        </div>
+
+            <footer class="single-footer container medium">
+                <div class="single-footer-left">
+                    <% if (page.prev) { %>
+                        <div class="navigation navigation-previous">
+                            <a class="navigation-link" href="<%- url_for(page.prev.path) %>" aria-label="Previous post">
+                                <svg class="icon navigation-icon">
+                                    <use xlink:href="#arrow-left"></use>
+                                </svg>
+                            </a>
+                        </div>
+                    <% } %>
+                </div>
+                <div class="single-footer-middle">
+                    <div class="single-footer-top">
+                        <h3 class="single-footer-title">点击分享</h3>
+                    </div>
+                    <div class="single-footer-bottom">
+                        <div class="share">
+                            <a class="share-link share-link-facebook"
+                                href="https://www.facebook.com/sharer.php?u=<%- config.url %><%- url_for(page.path) %>"
+                                target="_blank" rel="noopener noreferrer">
+                                <svg class="icon icon-facebook">
+                                    <use xlink:href="#facebook"></use>
+                                </svg>
+                                Facebook
+                            </a>
+                            <a class="share-link share-link-twitter"
+                                href="https://twitter.com/intent/tweet?url=<%- config.url %><%- url_for(page.path) %>"
+                                target="_blank" rel="noopener noreferrer">
+                                <svg class="icon icon-twitter">
+                                    <use xlink:href="#twitter"></use>
+                                </svg>
+                                Tweet
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="single-footer-right">
+                    <% if (page.next) { %>
+                        <div class="navigation navigation-next">
+                            <a class="navigation-link" href="<%- url_for(page.next.path) %>" aria-label="Next post">
+                                <svg class="icon navigation-icon">
+                                    <use xlink:href="#arrow-right"></use>
+                                </svg>
+                            </a>
+                        </div>
+                    <% } %>
+                </div>
+            </footer>
+    </article>
+
+
+    </main>
 </div>

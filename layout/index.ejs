@@ -1,6 +1,9 @@
 
-<%-partial('partials/recent-posts')%>
-
-<div id="paginator">
-  <%-paginator()%>
+<div class="content-area">
+    <main class="site-main">
+        <div class="post-feed container medium">
+          <%-partial('partials/loop')%>
+        </div>
+        <%-paginator()%>
+    </main>
 </div>
