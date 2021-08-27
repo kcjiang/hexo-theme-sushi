@@ -1,0 +1,49 @@
+<footer class="single-footer container medium">
+    <div class="single-footer-left">
+        <% if (page.prev) { %>
+            <div class="navigation navigation-previous">
+                <a class="navigation-link" href="<%- url_for(page.prev.path) %>" aria-label="Previous post">
+                    <svg class="icon navigation-icon">
+                        <use xlink:href="#arrow-left"></use>
+                    </svg>
+                </a>
+            </div>
+        <% } %>
+    </div>
+    <div class="single-footer-middle">
+        <div class="single-footer-top">
+            <h3 class="single-footer-title">点击分享</h3>
+        </div>
+        <div class="single-footer-bottom">
+            <div class="share">
+                <a class="share-link share-link-facebook"
+                    href="https://www.facebook.com/sharer.php?u=<%- config.url %><%- url_for(page.path) %>"
+                    target="_blank" rel="noopener noreferrer">
+                    <svg class="icon icon-facebook">
+                        <use xlink:href="#facebook"></use>
+                    </svg>
+                    Facebook
+                </a>
+                <a class="share-link share-link-twitter"
+                    href="https://twitter.com/intent/tweet?url=<%- config.url %><%- url_for(page.path) %>"
+                    target="_blank" rel="noopener noreferrer">
+                    <svg class="icon icon-twitter">
+                        <use xlink:href="#twitter"></use>
+                    </svg>
+                    Tweet
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="single-footer-right">
+        <% if (page.next) { %>
+            <div class="navigation navigation-next">
+                <a class="navigation-link" href="<%- url_for(page.next.path) %>" aria-label="Next post">
+                    <svg class="icon navigation-icon">
+                        <use xlink:href="#arrow-right"></use>
+                    </svg>
+                </a>
+            </div>
+        <% } %>
+    </div>
+</footer>

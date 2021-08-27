@@ -1,9 +1,42 @@
+<div class="content-area">
+  <main class="site-main">
+    <article class="single post no-image page">
+      <header class="single-header kg-canvas">
+        <h1 class="single-title"><%=page.title%></h1>
+        
+        <% if (page.excerpt && page.excerpt.length) { %>
+          <div class="single-excerpt">
+            <%=page.excerpt%>
+          </div>
+        <% } %>
+      
+      </header>
+      
+      <div class="single-content kg-canvas u-text-format">
+        <%-page.content%>
+      </div>
+    </article>
 
-<article id="page">
-  <h1><%=page.title%></h1>
-  <%-page.content%>
-</article>
-
-<div id="paginator">
-  <%-paginator()%>
+        <!--
+        <form action="https://formspree.io/FORM_ID" class="contact-form container small" method="POST">
+            <label>
+                Name:
+                <input type="text" name="name" required>
+            </label>
+            <label>
+                Email:
+                <input type="email" name="email" required>
+            </label>
+            <label>
+                Message:
+                <textarea rows="6" name="message" required></textarea>
+            </label>
+            <input type="hidden" name="_subject" id="email-subject" value="Contact Form Submission">
+            <input type="hidden" name="_next" value="{{@site.url}}/thanks/">
+            <button class="button" type="submit">Submit</button>
+        </form>
+        -->
+  
+  
+  </main>
 </div>

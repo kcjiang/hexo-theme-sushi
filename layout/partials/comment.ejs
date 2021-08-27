@@ -1,0 +1,9 @@
+<% if (page.comments == false) { %>
+    <div class="comment container small">
+        <div id="disqus_thread">
+            <button class="button button-secondary" onclick="">评论功能被禁用</button>
+        </div>
+    </div>
+<% } else { %>
+    <%-partial('widgets/Disqus')%>
+<% } %>

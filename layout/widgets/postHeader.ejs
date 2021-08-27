@@ -1,0 +1,51 @@
+<header class="single-header kg-canvas">
+  <div class="single-meta">
+    <span class="single-meta-item single-meta-date">
+      <time datetime="<%=date(page.date, 'YYYY-MM-DD')%>">
+        <%=date(page.date, 'YYYY-MM-DD')%>
+      </time>
+    </span>
+    
+    <span class="single-meta-item single-meta-length">
+      <%=min2read(page.content)%> min read
+    </span>
+    
+    <span class="single-meta-item single-meta-tag">
+      <% if (page.tags && page.tags.length) {
+        var tags = [];
+        page.tags.forEach(function(tag) {
+          tags.push('<a class="post-tag" href="' +  config.root + tag.path + '">#' + tag.name + '</a>');
+        });
+      %>
+      <%- tags.join(' ') %>
+      <% } %>
+    </span>
+  </div>
+  
+  <h1 class="single-title"><%=page.title%></h1>
+  <% if (page.excerpt && page.excerpt.length) { %>
+    <div class="single-excerpt">
+      <%=page.excerpt%>
+    </div>
+  <% } %>
+  
+  <% if (page.image && page.image.length) { %>
+    <%
+    var imgStyle = "wide";
+    if (page.imgWidth == 'full') imgStyle = "full";
+    if (page.imgWidth == 'narrow') imgStyle = "narrow";
+    %>
+    
+    <figure class="single-media kg-width-<%=imgStyle%>">
+      <div class="u-placeholder horizontal">
+        <img class="lazyload u-object-fit" src="<%=page.image%>" alt="feature_image">
+      </div>
+      
+      <% if (page.imgCaption && page.imgCaption.length) { %>
+        <figcaption>
+          <%=page.imgCaption%>
+        </figcaption>
+      <% } %>
+    </figure>
+  <% } %>
+</header>
