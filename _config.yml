@@ -5,10 +5,10 @@ language: en
 # main menu navigation
 menu:
   Home: /
-  About: /about
-  Contact: /contact
-  More links: /...
   Archives: /archives
+  About: /about
+  More links: /...
+  Contact: /contact
 
 # main logo in navigation
 logo: /nav_logo.svg
@@ -21,10 +21,8 @@ icon: /home_img.png
 
 # stylesheets loaded in the <head>
 stylesheets:
-#- /css/codeBurger.css
-- /built/screen.css
+- /css/screen.css
 
 # scripts loaded in the end of the body
 scripts:
-#- /js/codeBurger.js
-- /built/main.min.js
+- /js/main.min.js
