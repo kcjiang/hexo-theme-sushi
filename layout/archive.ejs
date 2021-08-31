@@ -1,70 +1,56 @@
+<div class="content-area">
+  <main class="site-main">
 
-<%
-const categoriesList = list_categories(site.categories, {class: 'tag-list-item ', orderby: 'length', order: 'desc', style: false, show_count: false, separator: ' '});
-const tagsList = list_tags(site.tags, {class: {a: 'tag-list-item'}, orderby: 'length', order: 'desc', style: false, show_count: false, separator: ' '});
-const archivesList = list_archives({class: 'archive', type: 'monthly', order: 'desc', style: false, show_count: false, separator: ' '});
-%>
+    <header class="single-header kg-canvas">
+      <h1 class="single-title">归档</h1>
+    </header>
 
-<% if (is_year() === false) { %>
-  <div id="archive">
-
-    <h1>Archives</h1>
-
-    <% if (theme.atom !== undefined) { %>
-      <p>
-        The feed is available via
-        <a href="<%=theme.atom%>">atom</a>.
-      </p>
-      <br>
-    <% } %>
-
-    <aside>
-      <h2>Categories</h2>
-      <% if (categoriesList !== "") { %>
-        <%-categoriesList%>
-      <% } else { %>
-        <p>None.</p>
-      <% } %>
-    </aside>
-    <br>
-
-    <aside>
-      <h2>Tags</h2>
-      <% if (tagsList !== "") { %>
-        <%-tagsList%>
-      <% } else { %>
-        <p>None.</p>
-      <% } %>
-    </aside>
-    <br>
-
-    <aside>
-      <h2>Archives</h2>
-      <% if (archivesList !== "") { %>
-        <%-archivesList%>
-      <% } else { %>
-        <p>None.</p>
-      <% } %>
-    </aside>
-
-  </div>
-<% } else { %>
-
-  <h1><%=page.month + '/' + page.year%></h1>
-
-  <% page.posts.each(article => { %>
-    <div class="archive-item">
-      <a href="<%=url_for(article.path)%>">
-        <%=article.title%>
-      </a>
-      <time datetime="<%=date_xml(article.date)%>">
-        <%=date(article.date)%>
-      </time>
+    <div class="box-selector container box-selector-cat hidden-lg hidden-xl">
+      <button class="button box-selector-button" data-box="cat">分类</button>
+      <button class="button button-secondary box-selector-button" data-box="tag">标签</button>
     </div>
-  <% }) %>
 
-  <div id="paginator">
-    <%-paginator()%>
-  </div>
+    <div class="box-area container">
+      <section class="box box-cat box-cat-width">
+        <header class="box-header">
+          <h2 class="box-title">分类 📦</h2>
+          <div class="box-amount">
+            <div class="box-amount-digit"><%=site.categories.length%></div>
+          </div>
+        </header>
+        <article class="cat-list-box">
+          <% if (site.categories.length) { %>
+          <% site.categories.sort('path').each(function(category){ %>
+          <a class="cat-item" href="<%=url_for(category.path)%>">
+            <span class="name"><%=category.name%></span>
+            <span class="badge">(<%=category.posts.length%>)</span>
+          </a>
+          <% }); %>
+          <% } else { %>
+          <p>未检索到任何分类。</p>
+          <% } %>
+        </article>
+      </section>
 
-<% } %>
+      <section class="box box-tag box-tag-width">
+        <header class="box-header">
+          <h2 class="box-title">标签 🏷️</h2>
+          <div class="box-amount">
+            <div class="box-amount-digit"><%=site.tags.length%></div>
+          </div>
+        </header>
+        <article class="tag-list-box">
+          <% if (site.tags.length) { %>
+          <% site.tags.sort('length', -1).each(function(tag){ %>
+          <a class="tag-item" href="<%=url_for(tag.path)%>">
+            <span class="name">#<%=tag.name%></span>
+          </a>
+          <% }); %>
+          <% } else { %>
+          <p>未检索到任何标签。</p>
+          <% } %>
+        </article>
+      </section>
+    </div>
+  </main>
+</div>

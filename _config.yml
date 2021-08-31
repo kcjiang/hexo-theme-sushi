@@ -11,13 +11,13 @@ menu:
   Contact: /contact
 
 # main logo in navigation
-logo: /nav_logo.svg
+logo: /images/logo.svg
 
 # cove description
 description: '域名变更提示：hikc.net(原) ---> jkc.icu(新)'
 
 # cove icon
-icon: /home_img.png
+icon: /images/icon.png
 
 # stylesheets loaded in the <head>
 stylesheets:
@@ -25,4 +25,8 @@ stylesheets:
 
 # scripts loaded in the end of the body
 scripts:
-- /js/main.min.js
+- /js/main.js
+- /js/lib/owl.carousel.min.js
+- /js/lib/jquery.fitvids.js
+- /js/lib/lazysizes.min.js
+- /js/lib/infinite-scroll.pkgd.min.js
