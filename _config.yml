@@ -30,3 +30,4 @@ scripts:
 - /js/lib/jquery.fitvids.js
 - /js/lib/lazysizes.min.js
 - /js/lib/infinite-scroll.pkgd.min.js
+- /js/search.js
