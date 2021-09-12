@@ -1,24 +1,20 @@
-
-<%
-var pageTitle = page.title || config.subtitle || '';
-if (is_archive()) pageTitle = 'Archives';
-if (is_tag()) pageTitle = 'Tag: ' + page.tag;
-if (is_category()) pageTitle = 'Category: ' + page.category;
-if (is_month()) pageTitle += ': ' + page.month + '/' + page.year;
-if (is_year()) pageTitle += ': ' + page.year;
-pageTitle += ' [ ' + config.title + ' ]';
-%>
+<% var pageTitle=page.title || config.subtitle || '' ; if (is_archive()) pageTitle='Archives' ; if (is_tag())
+  pageTitle='Tag: ' + page.tag; if (is_category()) pageTitle='Category: ' + page.category; if (is_month()) pageTitle
+  +=': ' + page.month + '/' + page.year; if (is_year()) pageTitle +=': ' + page.year; pageTitle +=' [ ' + config.title
+  + ' ]' ; %>
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title><%=pageTitle%></title>
+  <title>
+    <%=pageTitle%>
+  </title>
 
-  <% if (theme.stylesheets !== undefined && theme.stylesheets.length > 0) { %>
-    <!-- stylesheets list from _config.yml -->
-    <% theme.stylesheets.forEach(url => { %>
-      <link rel="stylesheet" href="<%=url%>">
-    <% }); %>
+  <% if (theme.stylesheets !==undefined && theme.stylesheets.length> 0) { %>
+  <!-- stylesheets list from _config.yml -->
+  <% theme.stylesheets.forEach(url=> { %>
+  <link rel="stylesheet" href="<%=url%>">
+  <% }); %>
   <% } %>
 
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -29,16 +25,24 @@ pageTitle += ' [ ' + config.title + ' ]';
   </script>
 
   <script>
+    var themeOptions = {
+      disqus_shortname: '<%=theme.comments.disqus_shortname%>',
+      white_logo: '',
+      white_icon: '',
+    };
+  </script>
+
+  <script>
     var localTheme = localStorage.getItem('dawn_theme');
     switch (localTheme) {
-        case 'dark':
-            document.documentElement.classList.add('theme-dark');
-            break;
-        case 'light':
-            document.documentElement.classList.add('theme-light');
-            break;
-        default:
-            break;
+      case 'dark':
+        document.documentElement.classList.add('theme-dark');
+        break;
+      case 'light':
+        document.documentElement.classList.add('theme-light');
+        break;
+      default:
+        break;
     }
   </script>
 

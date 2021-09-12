@@ -1,6 +1,6 @@
 
 # html lang
-language: en
+language: zh-CN
 
 # main menu navigation
 menu:
@@ -31,3 +31,8 @@ scripts:
 - /js/lib/lazysizes.min.js
 - /js/lib/infinite-scroll.pkgd.min.js
 - /js/search.js
+
+# Comments
+comments:
+  # Disqus comments
+  disqus_shortname: hikc

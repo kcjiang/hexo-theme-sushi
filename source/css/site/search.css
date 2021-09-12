@@ -30,9 +30,21 @@
     padding: 1.3rem 1.5rem 1.2rem;
     font-size: 1.5rem;
     line-height: 1.4;
+    color: var(--brand-color);
 }
 
 .search-result-row-link:hover {
     background-color: var(--lighter-gray-color);
     opacity: 1;
+}
+
+.search-result-row-detail {
+    padding: 0 1.5rem;
+    font-size: small;
+}
+
+.search-keyword {
+    color: #dd4b39;
+    font-style: normal;
+    font-weight: 700;
 }
