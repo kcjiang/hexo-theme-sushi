@@ -104,14 +104,6 @@
     margin-top: 1rem;
 }
 
-.site-info a {
-    color: #b9b9b9
-}
-
-.site-info a:hover {
-    color: orange
-}
-
 .github-badge {
     display: inline-block;
     border-radius: 4px;
@@ -138,36 +130,22 @@
     border-bottom-right-radius: 4px;
 }
 
-.github-badge .bg-brightgreen {
-    background-color: #4DC820 !important;
+.github-badge .bg-hexo {
+    background-color: #0e83cd;
 }
 
-.github-badge .bg-orange {
-    background-color: #FFA500 !important;
+.github-badge .bg-github {
+    background-color: #6e398b;
 }
 
-.github-badge .bg-blueviolet {
-    background-color: #8833D7 !important;
+.github-badge .bg-jsdelivr {
+    background-color: #ff5627;
 }
 
-.github-badge .bg-firebrick {
-    background-color: #EE2C2C !important;
+.github-badge .bg-uv {
+    background-color: #62b900;
 }
 
-.github-badge .bg-blue {
-    background-color: #007EC6 !important;
-}
-
-.github-badge .bg-lightgrey {
-    background-color: #9F9F9F !important;
-}
-
-.github-badge .bg-grey,
-.github-badge .bg-gray {
-    background-color: #555 !important;
-}
-
-.github-badge .bg-lightgrey,
-.github-badge .bg-lightgray {
-    background-color: #9f9f9f !important;
+.github-badge .bg-pv {
+    background-color: #0a8;
 }

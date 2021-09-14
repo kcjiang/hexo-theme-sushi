@@ -4,11 +4,13 @@ language: zh-CN
 
 # main menu navigation
 menu:
-  Home: /
-  Archives: /archives
-  About: /about
+  首页: /
+  归档: /archives
+  关于: /about
   More links: /...
-  Contact: /contact
+  友链: /friends
+  个人简历: /vc
+  摄影作品: /gallery
 
 # main logo in navigation
 logo: /images/logo.svg
@@ -30,9 +32,13 @@ scripts:
 - /js/lib/jquery.fitvids.js
 - /js/lib/lazysizes.min.js
 - /js/lib/infinite-scroll.pkgd.min.js
+- /js/lib/busuanzi.pure.mini.js
 - /js/search.js
 
-# Comments
+# comments
 comments:
   # Disqus comments
   disqus_shortname: hikc
+
+# formspree
+endpoint: https://formspree.io/f/mrgrjbpj

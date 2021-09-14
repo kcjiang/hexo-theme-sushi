@@ -1,0 +1,19 @@
+<form action="<%=theme.endpoint%>" class="contact-form container small" method="POST">
+    <label>
+        名称:
+        <input type="text" name="_name" required>
+    </label>
+    <label>
+        链接:
+        <input type="text" name="_link" required>
+    </label>
+    <label>
+        头像地址:
+        <input type="text" name="_avatar" required>
+    </label>
+    <label>
+        介绍:
+        <textarea rows="3" name="_introduce"></textarea>
+    </label>
+    <button class="button" type="submit">发送</button>
+</form>
