@@ -20,7 +20,7 @@
         </header>
         <article class="cat-list-box">
           <% if (site.categories.length) { %>
-          <% site.categories.sort('path').each(function(category){ %>
+          <% site.categories.sort('length', -1).each(function(category){ %>
           <a class="cat-item" href="<%=url_for(category.path)%>">
             <span class="name"><%=category.name%></span>
             <span class="badge">(<%=category.posts.length%>)</span>
